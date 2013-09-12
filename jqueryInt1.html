@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	img {
+		width: 150px;
+		height: 200px;
+	}
+	</style>
+	<title>Laura's JQuery Intermediate 1 Exercise</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('td').html('<img src="http://ninjacouzinz.webs.com/mini-ninja2.jpg"/>');
+			$('img').click(function(){ 
+				$(this).hide();
+			});
+			$('button').click(function(){
+				$('img').show();
+			});			
+		});
+
+	</script>
+</head>
+<body>
+	<table id="ninjas">
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>		
+	</table>
+	<button>Restore</button>
+</body>
+</html>
