@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Laura's JQuery UI Intermediate 1 Exercise</title>
+		<style>
+			#box {
+				width:300px;
+				min-height: 100px;
+				background-color: green;
+				border: 1 px solid black;
+				padding: 30px;
+			}
+		</style>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#box').hide();
+				$('.datepicker').datepicker();
+				$('#submit').submit(function() {
+					$('#box').show(function() {
+						$('#box > p').after('<p>From: ' + 
+						$('#from').val() + '</br>To: ' + 
+						$('#to').val());
+					}); 
+					return false;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h2>JQuery Intermediate UI Assignment</h2>
+		<div id="box">
+			<p>Your Form Information:</p>
+		</div>
+		<form id="submit" method="post">
+			<p>From: <input type="text" id="from" class="datepicker" placeholder="from date"/></p>
+			<p>To: <input id="to" class="datepicker" placeholder="to date"/></p>
+			<input type="submit" value="Submit"/>
+		</form>
+	</body>
+</html>
