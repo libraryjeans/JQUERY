@@ -3,28 +3,47 @@
 <head>
 	<style>
 		img {
-			width:250px;
+			width:350px;
+			height:75px;
 			display: block;
 			margin:5px 0px;
 			border: 1px solid black;
 		}
+		.hide {
+			display: none;
+		}
 	</style>
-	<title>JQuery Intermediate II assignment 1</title>
+	<title>Laura's JQuery Intermediate II assignment 1</title>
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#ninja').sortable();
+			$('img').click(function(){
+				$(this).toggleClass('hide');
+				$(this).siblings().toggleClass('hide');
+			})
 		});
 	</script>
 </head>
 <body>
-	<div id="ninja">
-		<img src="ninja1.png" alt="ninja1"/>
-		<img src="ninja2.png" alt="ninja2"/>
-		<img src="ninja3.png" alt="ninja3"/>
-		<img src="ninja4.png" alt="ninja4"/>
+	<div id="puzzle">
+		<div id="1">
+			<img class="hide" src="ninja1.png" alt="ninja1"/>
+			<img src="boat1.png" alt="boat1"/>			
+		</div>
+		<div id="2">
+			<img class="hide" src="ninja2.png" alt="ninja2"/>
+			<img src="boat2.png" alt="boat2"/>			
+		</div>
+		<div id="3">
+			<img class="hide" src="ninja3.png" alt="ninja3"/>
+			<img src="boat3.png" alt="boat3"/>			
+		</div>
+		<div id="4">
+			<img class="hide" src="ninja4.png" alt="ninja4"/>
+			<img src="boat4.png" alt="boat4"/>			
+		</div>						
 	</div>
 </body>
 </html>
