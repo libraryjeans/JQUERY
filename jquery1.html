@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Laura's JQuery Exercise 1</title>
+<!-- missing these but gotta move on - .attr, .html, .text, .serialize, .focus, -->
+	<link rel="stylesheet" type="text/css" href="jquery1.css"> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		// run the following functions after the docment has been loaded
+		$(document).ready(function() {
+			$('h1').click(function() {
+				$('p').hide();
+			});
+			$('h2').click(function() {
+				$('p').show();
+			});
+			$('p').click(function() {
+				$('h1, h2').toggle();
+			});
+			//this creates fadeIn / fadeOut buttons
+			$('button#1').click(function() {
+				$('button#1').fadeOut(function() {
+					$('button#2').click(function() {
+						$('button#1').fadeIn();
+						$('button#2').hide();
+					});
+				});
+				$('button#1').after('<button id="2">fadeIn</button>');
+			});
+			$('#color').change(function() {
+				$('body').removeClass();
+				$('body').addClass($('#color').val());
+			});
+			$('#append_text').submit(function() {
+				$('h1, h2').append($('#text').val());
+				return false;
+			});
+			$('#picture').submit(function() {
+				$('h1').before('<img src=' + $('#url').val() + '>');
+				$('img').after('<p id="toggle"> now click here to toggle slide your pic</p>');
+				$('p').click(function() {
+					$('img').slideToggle(2000);
+				});
+				return false;
+			});			
+
+		});
+	</script>
+</head>
+<body>
+	<h1>Click me to hide all paragraphs</h1>
+	<p>Toggle click me to show / hide the headings</p>
+	<h2>Click me to show the paragraphs (if they are hiding)</h2>
+	<p>Toggle click me to show / hide the headings</p>
+	This button shows how fadeOut and fadeIn works: <button id="1">fadeOut</button>
+	<p>
+		Select a text color to see how addClass / removeClass works:
+		<select id="color">
+			<option value="black">black</option>
+			<option value="green">green</option>
+			<option value="red">red</option>
+			<option value="blue">blue</option>
+			<option value="yellow">yellow</option>
+		</select>
+	</p>
+	<form id="append_text">
+		<input id="text" type="text" placeholder="append to headings"/>
+		<input type="submit" value="append"/>
+	</form>
+	<form id="picture">
+		<input id="url" type="text" placeholder="url of picture"/>
+		<input type="submit" value="upload pic url"/>
+	</form>	
+</body>
+</html>
